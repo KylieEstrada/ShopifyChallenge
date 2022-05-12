@@ -1,0 +1,57 @@
+/* Question Two */
+
+/*  Part a) */
+SELECT Shippers.ShipperName, COUNT(Orders.ShipperID) As TotalOrders FROM Orders
+LEFT JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID
+GROUP BY ShipperName HAVING ShipperName LIKE '%Speedy Express%';
+
+/* Speedy Express shipped 54 orders in total. */
+
+/* Part b) */
+SELECT Employees.LastName, COUNT(Orders.EmployeeID) AS TotalOrders
+FROM (Orders
+LEFT JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID)
+GROUP BY LastName
+ORDER BY COUNT(LastName) DESC;
+
+/* Peacock is the last name of the employee with the most orders. */
+
+/* Part c) */
+SELECT Products.ProductName, OrderDetails.Quantity
+FROM Customers
+INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+INNER JOIN OrderDetails ON Orders.OrderID = OrderDetails.OrderID
+INNER JOIN Products ON Products.ProductID = OrderDetails.ProductID
+WHERE Customers.Country = 'Germany';
+
+/* Customers in Germany ordered Steeleye Stouts the most, purchasing 100 of them! */
+
+~                                                                                                                
+~                                                                                                                
+~                                                                                                                
+~                                                                                                                
+~                                                                                                                
+~                                                                                                                
+~                                                                                                                
+~                                                                                                                
+~                                                                                                                
+~                                                                                                                
+~                                                                                                                
+~                                                                                                                
+~                                                                                                                
+~                                                                                                                
+~                                                                                                                
+~                                                                                                                
+~                                                                                                                
+~                                                                                                                
+~                                                                                                                
+~                                                                                                                
+~                                                                                                                
+~                                                                                                                
+~                                                                                                                
+~                                                                                                                
+~                                                                                                                
+~                                                                                                                
+~                                                                                                                
+~                                                                                                                
+-- INSERT --                                                                                   1,19          All
